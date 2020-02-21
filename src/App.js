@@ -2,19 +2,26 @@ import React, { useState } from 'react';
 import {
   Wrapper,
   Title,
-  FriendCardExtended,
+  FriendCard,
+  Footer,
+  Header,
+  GameCard,
 } from './components';
 import friendsData from './friends.json';
 
 const App = () => {
     const [friends, setFriends] = useState(friendsData);
+    let friends = 
+    // const removeFriend = id => {
+    //   const filteredFriends = friends.filter(friend => friend.id !== id);
 
-    const removeFriend = id => {
-      const filteredFriends = friends.filter(friend => friend.id !== id);
+    //   setFriends(filteredFriends);
+    // };
 
-      setFriends(filteredFriends);
-    };
-
+    const clickHandler = id => {
+        const isClicked = friends.filter()
+    }
+    
     return (
       <Wrapper>
         <Title>Friends List</Title>
