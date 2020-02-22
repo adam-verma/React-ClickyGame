@@ -1,29 +1,16 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import "./style.css";
+import "../FriendCard/style.css";
 
-const propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-};
-
-const FriendCard = ({
-    id,
-    name,
-    image,
-}) => (
+const FriendCard = props => (
     <div 
     className="card" 
-    id = {id}
-    onClick={() => clickHandler(id)} className="click">
+    id = {props.id}
+    onClick={() => props.clickHandler(props.id)} className="click">
       <div 
         className="img-container">
-        <img alt={name} src={image} />
+        <img alt={props.name} src={props.image} />
       </div>
     </div>
   );
-
-FriendCard.propTypes = propTypes;
 
 export default FriendCard;

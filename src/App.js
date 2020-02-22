@@ -5,39 +5,103 @@ import {
   FriendCard,
   Footer,
   Header,
-  GameCard,
 } from './components';
-import friendsData from './friends.json';
+import players from './friends.json';
 
 const App = () => {
-    const [friends, setFriends] = useState(friendsData);
-    let friends = 
-    // const removeFriend = id => {
-    //   const filteredFriends = friends.filter(friend => friend.id !== id);
-
-    //   setFriends(filteredFriends);
-    // };
-
+    const [click, setClick] = useState({
+      players,
+      highScore: 0,
+      currentPts: 0,
+      winCounter: 0,
+      message: "",
+      numClick: []
+    });
+  
     const clickHandler = id => {
-        const isClicked = friends.filter()
+        if (click.numClick.indexOf(id) === -1) {
+          handleIncrement()
+          setClick({
+            numClick: click.numClick.concat(id)
+          });
+        }
+        else {
+          handleRestart()
+        }
     }
     
+    const randomizer = (arr) => {
+      let i, j; 
+      for (i = arr.length-1; i>0; i--) {
+        j = Math.floor(Math.random()*(i+1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      } 
+      return arr;
+    };
+
+    const handleRandomize = () => { 
+      let randomizePlayers = randomizer(players);
+      setClick({
+        players: randomizer
+      })
+    }
+
+    const handleIncrement = () => {
+      const update = click.currentPts + 1;
+      setClick({
+        currentPts: update,
+        message: ""
+      });
+      if (update >= click.highScore) {
+        setClick({
+            highScore: update
+        })
+      }
+      else if (update === 10) {
+        setClick({
+          message: "Game won!!", 
+          winCounter: winCounter+1 
+        })
+      }
+      }
+
+
+    const handleRestart = () => {
+      setClick({
+        highScore: click.highScore,
+        currentPts: 0,
+        winCounter: winCounter,
+        message: "Game lost :( ",
+        numClick: []
+      })
+    }
     return (
       <Wrapper>
-        <Title>Friends List</Title>
-        {friends.map(friend => (
-          <FriendCardExtended
-            removeFriend={removeFriend}
+        <Header
+        highScore={click.highScore}
+        totalWins={click.winCounter}
+        points={click.currentPts}
+        />
+     
+        <Title>
+          <h1>Welcome to the Tile Clicking Game. Don't duplicate the clicks! </h1>
+        </Title>
+        {click.players.map(friend => (
+          <FriendCard
+            clickHandler={clickHandler}
+            handleRandomize={handleRandomize}
+            handleIncrement={handleIncrement}
+            handleRestart={handleRestart}
             id={friend.id}
-            key={friend.id}
-            name={friend.name}
             image={friend.image}
-            occupation={friend.occupation}
-            location={friend.location}
           />
         ))}
+      <Footer>
+        <h3>Copyright</h3>  
+      </Footer>
       </Wrapper>
     );
-}
+        }
+
 
 export default App;
