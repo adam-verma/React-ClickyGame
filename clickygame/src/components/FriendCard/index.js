@@ -1,14 +1,19 @@
 import React from "react";
 import "../FriendCard/style.css";
 
-const FriendCard = props => (
+const FriendCard = ({
+  id,
+  name,
+  image,
+  clickHandler
+}) => (
     <div 
     className="card" 
-    id = {props.id}
-    onClick={() => props.clickHandler(props.id)} className="click">
+    id = {id}
+    onClick={() => clickHandler(id)} className="click">
       <div 
         className="img-container">
-        <img alt={props.name} src={props.image} />
+        <img alt={name} src={image} />
       </div>
     </div>
   );

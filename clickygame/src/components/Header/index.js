@@ -8,9 +8,9 @@ const Header = props => (
         <li className="nav-item">
           <a className="nav-link" href="https://github.com/adam-verma/React-ClickyGame">{props.gameName}</a>
         </li>
-        <li className="nav-item" id="highScore">{props.highScore}></li>
-        <li className="nav-item" id="winCounter">{props.totalWins}</li>
-        <li className="nav-item" id="currentPts">{props.points}</li>
+        <li className="nav-item" id="highScore">High Score: {props.highScore}</li>
+        <li className="nav-item" id="winCounter">Total Wins: {props.totalWins}</li>
+        <li className="nav-item" id="currentPts">Current Score: {props.points}</li>
       </ul>
     </div>
   </nav>

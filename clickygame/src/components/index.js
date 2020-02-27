@@ -1,11 +1,11 @@
 import Footer from './Footer';
-import GameCard from './GameCard';
+import FriendCard from './FriendCard';
 import Header from './Header';
 import Wrapper from './Wrapper';
 
 export {
     Footer,
-    GameCard,
+    FriendCard,
     Header,
     Wrapper
 }
