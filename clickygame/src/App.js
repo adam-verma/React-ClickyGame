@@ -74,6 +74,7 @@ const App = () => {
     
     return (
       <Wrapper>
+        <Container>
         <Header
         highScore={highScore}
         totalWins={winCount}
@@ -93,6 +94,7 @@ const App = () => {
           ))}
           </Col>
         </Row>
+        </Container>
       <Footer>
         <h3>Copyright</h3>  
       </Footer>
