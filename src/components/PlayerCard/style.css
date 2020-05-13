@@ -1,0 +1,34 @@
+.card {
+    background: #fff;
+    border-radius: 10px;
+    height: 100%;
+    width: auto;
+    position: relative;
+    margin: 0.8rem; 
+    box-shadow: 0 10px 15px #999, 0 10px 15px #999;
+    text-align: left;
+  }
+  
+  .card > .img-container {
+    width: auto;
+    height: 100px;
+    overflow: hidden;
+    text-align: center;
+    position: absolute;
+    background:#6CADDC;
+  }
+
+  img {
+    height: 200px;
+    width: auto;
+    position: relative;
+    object-fit:scale-down;
+  }
+  
+  .hover .img {
+    margin-left: 10px;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
