@@ -5,14 +5,16 @@
     width: auto;
     position: relative;
     margin: 0.8rem; 
-    box-shadow: 0 10px 15px #999, 0 10px 15px #999;
+    box-shadow: 0 15px 15px #999, 0 15px 20px #999;
+    clip-path: inset(0px 0px -10px -10px);
     text-align: left;
+    overflow: hidden;
+    object-fit: scale-down;
   }
   
   .card > .img-container {
     width: auto;
     height: 100px;
-    overflow: hidden;
     text-align: center;
     position: absolute;
     background:#6CADDC;
@@ -22,7 +24,6 @@
     height: 200px;
     width: auto;
     position: relative;
-    object-fit:scale-down;
   }
   
   .hover .img {
